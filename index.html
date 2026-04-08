@@ -1,124 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amit Bhowmik Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amit Bhowmik</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #F4F8FB, #EEF2FF);
-      color: #0F172A;
-      scroll-behavior: smooth;
-    }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #F8FAFF, #EEF2FF);
+  color: #0F172A;
+  overflow-x: hidden;
+}
 
-    h1 {
-      font-size: 3rem;
-      margin: 0;
-    }
+/* NAVBAR */
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.6);
+  z-index: 1000;
+}
 
-    p {
-      font-size: 1.2rem;
-      opacity: 0.7;
-    }
+/* HERO */
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
 
-    button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      border: none;
-      background: #3B82F6;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+/* ANIMATED BACKGROUND */
+header::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #3B82F6, transparent);
+  filter: blur(120px);
+  animation: float 6s infinite ease-in-out;
+}
 
-    button:hover {
-      background: #2563EB;
-      transform: translateY(-2px);
-    }
+@keyframes float {
+  0%,100% {transform: translateY(0);}
+  50% {transform: translateY(-40px);}
+}
 
-    section {
-      padding: 60px 20px;
-      text-align: center;
-    }
+h1 {
+  font-size: 3.5rem;
+  z-index: 2;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 15px;
-      border-radius: 12px;
-      display: inline-block;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: 0.3s;
-    }
+p {
+  z-index: 2;
+  opacity: 0.7;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
-  </style>
+button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: #3B82F6;
+  border: none;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* SECTION */
+section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+/* CARDS */
+.card {
+  display: inline-block;
+  width: 260px;
+  margin: 20px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+}
+
+/* ICON STYLE */
+.icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* SCROLL ANIMATION */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
 </head>
 
 <body>
 
+<nav>
+  <div><b>Amit</b></div>
+  <div>Portfolio</div>
+</nav>
+
 <header>
   <h1>Amit Bhowmik</h1>
-  <p>Exploring Consumer Behaviour | Researcher | Future Business Leader</p>
-  <button onclick="document.getElementById('about').scrollIntoView()">Explore</button>
+  <p>Traveller | Consumer Behaviour Explorer | Athlete</p>
+  <button onclick="scrollToSection()">Explore</button>
 </header>
 
-<section id="about">
-  <h2>About Me</h2>
-  <div class="card">PGDM Student</div>
-  <div class="card">Research-Oriented Thinker</div>
-  <div class="card">Travel Experience (India)</div>
-</section>
+<section id="about" class="fade">
+  <h2>Who I Am</h2>
 
-<section>
-  <h2>Research & Insights</h2>
   <div class="card">
-    <h3>Does AI Kill Human Intelligence?</h3>
-    <p>Exploring impact of AI on thinking ability</p>
+    <div class="icon">🧳</div>
+    Traveller (India)
+  </div>
+
+  <div class="card">
+    <div class="icon">🧠</div>
+    Consumer Behaviour Explorer
+  </div>
+
+  <div class="card">
+    <div class="icon">🏏</div>
+    Athlete
   </div>
 </section>
 
-<section>
+<section class="fade">
+  <h2>Research & Insights</h2>
+
+  <div class="card">
+    <h3>Does AI Kill Human Intelligence?</h3>
+    <p>Understanding the impact of AI on human thinking patterns</p>
+  </div>
+</section>
+
+<section class="fade">
   <h2>Work</h2>
-  <div class="card">Research Report</div>
-  <div class="card">Academic Projects</div>
+
+  <div class="card">Research Reports</div>
+  <div class="card">Presentations</div>
+  <div class="card">AI Generated Videos</div>
 </section>
 
-<section>
-  <h2>Presentations</h2>
-  <div class="card">Marketing & Consumer Behaviour</div>
-</section>
-
-<section>
-  <h2>AI Generated Videos</h2>
-  <div class="card">Storytelling Videos</div>
-</section>
-
-<section>
+<section class="fade">
   <h2>LinkedIn</h2>
+
   <div class="card">200+ Connections</div>
-  <div class="card">No Article Followers</div>
+  <div class="card">Professional Presence</div>
 </section>
 
-<section>
-  <h2>Contact</h2>
-  <p>Let’s Connect</p>
-</section>
+<script>
+function scrollToSection() {
+  document.getElementById("about").scrollIntoView({behavior:"smooth"});
+}
+
+/* SCROLL ANIMATION */
+const elements = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", () => {
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add("show");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
